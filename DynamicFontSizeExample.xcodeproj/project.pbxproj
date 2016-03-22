@@ -12,6 +12,7 @@
 		29F202581CA13E4E00AA0746 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F202561CA13E4E00AA0746 /* Main.storyboard */; };
 		29F2025A1CA13E4E00AA0746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F202591CA13E4E00AA0746 /* Assets.xcassets */; };
 		29F2025D1CA13E4E00AA0746 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F2025B1CA13E4E00AA0746 /* LaunchScreen.storyboard */; };
+		29F202651CA13E6000AA0746 /* DynamicFontSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F202641CA13E6000AA0746 /* DynamicFontSizeHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		29F202591CA13E4E00AA0746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29F2025C1CA13E4E00AA0746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29F2025E1CA13E4E00AA0746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29F202641CA13E6000AA0746 /* DynamicFontSizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontSizeHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				29F202591CA13E4E00AA0746 /* Assets.xcassets */,
 				29F2025B1CA13E4E00AA0746 /* LaunchScreen.storyboard */,
 				29F2025E1CA13E4E00AA0746 /* Info.plist */,
+				29F202641CA13E6000AA0746 /* DynamicFontSizeHelper.swift */,
 			);
 			path = DynamicFontSizeExample;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				29F202551CA13E4E00AA0746 /* ViewController.swift in Sources */,
 				29F202531CA13E4E00AA0746 /* AppDelegate.swift in Sources */,
+				29F202651CA13E6000AA0746 /* DynamicFontSizeHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

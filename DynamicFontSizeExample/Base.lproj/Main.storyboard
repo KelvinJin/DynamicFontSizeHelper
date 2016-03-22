@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DynamicFontSizeExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,108 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="固定大小的标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knO-8g-EiI">
+                                <rect key="frame" x="20" y="117" width="120" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="0jy-mj-sJ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dynamic size label with system font" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEa-ev-GCJ">
+                                <rect key="frame" x="20" y="178" width="318" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="UyC-kH-NjG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="registerForSizeChangeWithDefaultFontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dynamic size label with custom font" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMX-hK-ofN">
+                                <rect key="frame" x="20" y="316" width="158" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="KKc-wg-F2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="registerForSizeChangeWithDefaultFontSize">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态大小使用自定义字体的标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-Uj-8VM">
+                                <rect key="frame" x="20" y="399" width="168" height="12"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="registerForSizeChangeWithDefaultFontSize">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态大小使用系统字体的标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0B-Oq-CjA">
+                                <rect key="frame" x="20" y="243" width="318" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="dMt-Vs-Ev8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="registerForSizeChangeWithDefaultFontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="static size label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6T7-G2-mt2">
+                                <rect key="frame" x="20" y="54" width="120" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="0wx-wI-mZp"/>
+                                    <constraint firstAttribute="width" constant="120" id="9f6-vO-uxu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QkD-Uj-8VM" secondAttribute="bottom" constant="165" id="Hog-mf-X1c"/>
+                            <constraint firstItem="gMX-hK-ofN" firstAttribute="top" secondItem="D0B-Oq-CjA" secondAttribute="bottom" constant="37" id="Ken-7W-KX3"/>
+                            <constraint firstItem="QkD-Uj-8VM" firstAttribute="top" secondItem="gMX-hK-ofN" secondAttribute="bottom" constant="47" id="L08-IC-Vzj"/>
+                            <constraint firstItem="SEa-ev-GCJ" firstAttribute="top" secondItem="knO-8g-EiI" secondAttribute="bottom" constant="25" id="P1v-bE-Yfa"/>
+                            <constraint firstItem="knO-8g-EiI" firstAttribute="top" secondItem="6T7-G2-mt2" secondAttribute="bottom" constant="27" id="RIS-Hb-HCq"/>
+                            <constraint firstItem="gMX-hK-ofN" firstAttribute="leading" secondItem="QkD-Uj-8VM" secondAttribute="leading" id="WSG-ro-weu"/>
+                            <constraint firstItem="6T7-G2-mt2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="WcV-af-vSz"/>
+                            <constraint firstItem="6T7-G2-mt2" firstAttribute="trailing" secondItem="knO-8g-EiI" secondAttribute="trailing" id="Yqb-3O-zLP"/>
+                            <constraint firstItem="6T7-G2-mt2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZrH-0U-hzM"/>
+                            <constraint firstItem="6T7-G2-mt2" firstAttribute="leading" secondItem="knO-8g-EiI" secondAttribute="leading" id="b4p-HS-DgY"/>
+                            <constraint firstItem="D0B-Oq-CjA" firstAttribute="leading" secondItem="gMX-hK-ofN" secondAttribute="leading" id="ech-XN-MRa"/>
+                            <constraint firstItem="knO-8g-EiI" firstAttribute="leading" secondItem="SEa-ev-GCJ" secondAttribute="leading" id="qLn-Kw-jCy"/>
+                            <constraint firstItem="D0B-Oq-CjA" firstAttribute="top" secondItem="SEa-ev-GCJ" secondAttribute="bottom" constant="29" id="sQz-v0-h8j"/>
+                            <constraint firstItem="SEa-ev-GCJ" firstAttribute="trailing" secondItem="D0B-Oq-CjA" secondAttribute="trailing" id="wxd-cg-VhJ"/>
+                            <constraint firstItem="SEa-ev-GCJ" firstAttribute="leading" secondItem="D0B-Oq-CjA" secondAttribute="leading" id="y63-IE-HyK"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hog-mf-X1c"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="340" y="387"/>
         </scene>
     </scenes>
 </document>
