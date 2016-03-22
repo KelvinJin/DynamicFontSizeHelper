@@ -43,9 +43,6 @@ private class ContentSizeCategoryChangeManager {
         // Don't readd the call back.
         guard !observerPool.contains({ $0.object === observer }) else { return }
         
-        // Run the block once to make sure the font size is initialized correctly.
-        block()
-        
         observerPool.append(Observer(object: observer, block: block))
     }
     
