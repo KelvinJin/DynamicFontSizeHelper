@@ -12,7 +12,7 @@
 		29F202581CA13E4E00AA0746 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F202561CA13E4E00AA0746 /* Main.storyboard */; };
 		29F2025A1CA13E4E00AA0746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F202591CA13E4E00AA0746 /* Assets.xcassets */; };
 		29F2025D1CA13E4E00AA0746 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F2025B1CA13E4E00AA0746 /* LaunchScreen.storyboard */; };
-		29F2026B1CA158EA00AA0746 /* DynamicFontSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2026A1CA158EA00AA0746 /* DynamicFontSizeHelper.swift */; };
+		29F2026D1CA159E300AA0746 /* DynamicFontSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2026C1CA159E300AA0746 /* DynamicFontSizeHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		29F202591CA13E4E00AA0746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29F2025C1CA13E4E00AA0746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29F2025E1CA13E4E00AA0746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		29F2026A1CA158EA00AA0746 /* DynamicFontSizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontSizeHelper.swift; sourceTree = "<group>"; };
+		29F2026C1CA159E300AA0746 /* DynamicFontSizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicFontSizeHelper.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 		29F202511CA13E4E00AA0746 /* DynamicFontSizeExample */ = {
 			isa = PBXGroup;
 			children = (
-				29F2026A1CA158EA00AA0746 /* DynamicFontSizeHelper.swift */,
+				29F2026C1CA159E300AA0746 /* DynamicFontSizeHelper.swift */,
 				29F202521CA13E4E00AA0746 /* AppDelegate.swift */,
 				29F202541CA13E4E00AA0746 /* ViewController.swift */,
 				29F202561CA13E4E00AA0746 /* Main.storyboard */,
@@ -140,7 +140,7 @@
 			files = (
 				29F202551CA13E4E00AA0746 /* ViewController.swift in Sources */,
 				29F202531CA13E4E00AA0746 /* AppDelegate.swift in Sources */,
-				29F2026B1CA158EA00AA0746 /* DynamicFontSizeHelper.swift in Sources */,
+				29F2026D1CA159E300AA0746 /* DynamicFontSizeHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
