@@ -19,7 +19,8 @@ userNameLabel.registerForSizeChangeWithDefaultFontSize = 14.0
 ```
 
 ### What do I get?
-This is what you get:
+This is what you get:  
+
 ![GIF Demo](https://raw.githubusercontent.com/KelvinJin/DynamicFontSizeHelper/master/DynamicFontSizeDemo.gif)
 
 ### License
