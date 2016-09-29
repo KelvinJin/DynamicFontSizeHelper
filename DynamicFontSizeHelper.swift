@@ -1,19 +1,19 @@
 import UIKit
 
 private var fontSizeMultiplier : CGFloat {
-    switch UIApplication.sharedApplication().preferredContentSizeCategory {
-    case UIContentSizeCategoryAccessibilityExtraExtraExtraLarge: return 23 / 16
-    case UIContentSizeCategoryAccessibilityExtraExtraLarge: return 22 / 16
-    case UIContentSizeCategoryAccessibilityExtraLarge: return 21 / 16
-    case UIContentSizeCategoryAccessibilityLarge: return 20 / 16
-    case UIContentSizeCategoryAccessibilityMedium: return 19 / 16
-    case UIContentSizeCategoryExtraExtraExtraLarge: return 19 / 16
-    case UIContentSizeCategoryExtraExtraLarge: return 18 / 16
-    case UIContentSizeCategoryExtraLarge: return 17 / 16
-    case UIContentSizeCategoryLarge: return 1.0
-    case UIContentSizeCategoryMedium: return 15 / 16
-    case UIContentSizeCategorySmall: return 14 / 16
-    case UIContentSizeCategoryExtraSmall: return 13 / 16
+    switch UIApplication.shared.preferredContentSizeCategory {
+    case UIContentSizeCategory.accessibilityExtraExtraExtraLarge: return 23 / 16
+    case UIContentSizeCategory.accessibilityExtraExtraLarge: return 22 / 16
+    case UIContentSizeCategory.accessibilityExtraLarge: return 21 / 16
+    case UIContentSizeCategory.accessibilityLarge: return 20 / 16
+    case UIContentSizeCategory.accessibilityMedium: return 19 / 16
+    case UIContentSizeCategory.extraExtraExtraLarge: return 19 / 16
+    case UIContentSizeCategory.extraExtraLarge: return 18 / 16
+    case UIContentSizeCategory.extraLarge: return 17 / 16
+    case UIContentSizeCategory.large: return 1.0
+    case UIContentSizeCategory.medium: return 15 / 16
+    case UIContentSizeCategory.small: return 14 / 16
+    case UIContentSizeCategory.extraSmall: return 13 / 16
     default: return 1.0
     }
 }
@@ -27,21 +27,21 @@ private class ContentSizeCategoryChangeManager {
         weak var object: AnyObject?
         var block: ContentSizeCategoryDidChangeCallback
         
-        init(object: AnyObject, block: ContentSizeCategoryDidChangeCallback) {
+        init(object: AnyObject, block: @escaping ContentSizeCategoryDidChangeCallback) {
             self.object = object
             self.block = block
         }
     }
     
-    private var observerPool: [Observer] = []
+    fileprivate var observerPool: [Observer] = []
     
-    private init() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(contentSizeCategoryDidChange(_:)), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+    fileprivate init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(contentSizeCategoryDidChange(_:)), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
     
-    func addCallback(observer: AnyObject, block: ContentSizeCategoryDidChangeCallback) {
+    func addCallback(_ observer: AnyObject, block: @escaping ContentSizeCategoryDidChangeCallback) {
         // Don't readd the call back.
-        guard !observerPool.contains({ $0.object === observer }) else { return }
+        guard !observerPool.contains(where: { $0.object === observer }) else { return }
         
         // Run the block once to make sure the font size is initialized correctly.
         block()
@@ -49,15 +49,15 @@ private class ContentSizeCategoryChangeManager {
         observerPool.append(Observer(object: observer, block: block))
     }
     
-    @objc func contentSizeCategoryDidChange(notification: NSNotification) {
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+    @objc func contentSizeCategoryDidChange(_ notification: Notification) {
+        DispatchQueue.main.async { [unowned self] in
             self.observerPool = self.observerPool.filter { $0.object != nil }
             self.observerPool.forEach { $0.block() }
         }
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -66,12 +66,12 @@ protocol FontSizeScalable: class {
 }
 
 extension FontSizeScalable {
-    private func registerForSizeChange(defaultFontSize: CGFloat? = nil) {
+    fileprivate func registerForSizeChange(_ defaultFontSize: CGFloat? = nil) {
         let defaultFontSize = defaultFontSize ?? scalableFont.pointSize
         
         ContentSizeCategoryChangeManager.sharedInstance.addCallback(self) { [weak self] _ in
             guard let _self = self else { return }
-            _self.scalableFont = UIFont(descriptor: _self.scalableFont.fontDescriptor(), size: defaultFontSize * fontSizeMultiplier)
+            _self.scalableFont = UIFont(descriptor: _self.scalableFont.fontDescriptor, size: defaultFontSize * fontSizeMultiplier)
         }
     }
 }
