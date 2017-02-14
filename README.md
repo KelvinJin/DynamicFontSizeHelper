@@ -11,13 +11,13 @@ Drag and drop the `DynamicFontSizeHelper.swift` file to your project.
 3. No more!
 
 
-#### Programatically
+#### Programmatically
 ```swift
 // Initialize my label somewhere
 let myLabel: UILabel
 
 // And then
-userNameLabel.registerForSizeChangeWithDefaultFontSize = 14.0
+myLabel.registerForSizeChangeWithDefaultFontSize = 14.0
 ```
 
 ### What do I get?
